@@ -104,9 +104,9 @@ void Interrupt0_Handler(void)
 
 int main(void)
 {
-  period=5000000U;      // period for FPGA implementation; blinking twice a
+  /* period=5000000U;      // period for FPGA implementation; blinking twice a */
                         // second for a 10MHz osc in CM0_DS
-  /* period=300U;          // period for simulations in Xilinx Vivado tool */
+  period=300U;          // period for simulations in Xilinx Vivado tool
 
   // Setting Timer interrupt
   TIMER_MTIMECMP0 = period;
