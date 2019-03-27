@@ -136,6 +136,23 @@ int main(void)
 
   SCB->SCR |= 0x2;  // Enable S1eep-on-exit feature
 
+  // Enabling and configuring DMA
+  CSR = 0x0;                           // Pause is disabled
+  INT_MSK_A = 0x1;                     // Enable interrupt for channel 0 on inta_o
+  CH0_SZ = (0x0<<16                    // Chunck transfer size (in words - 4 bytes)
+            | 0x100);                  // Total transfer size (in words - 4 bytes)
+  CH0_A0  = (0x40001000 & 0xfffffffc); // Source Address
+  CH0_A1  = (0x40002000 & 0xfffffffc); // Destination Address
+  /* CH0_AM0 = ();                     // Source address mask register */
+  /* CH0_AM1 = ();                     // Destination address mask register */
+  CH0_DESC = (0x00000000);             // Linked list descriptor pointer
+  CH0_SWPTR = (0x00000000);            // Software pointer
+  CH0_CSR = (1<<18                     // Enable IRQ when Done
+             | 0<<6                    // don't auto restart when Done
+             | 0<<5                    // Normal Mode
+             | 1<<4                    // Increment source address
+             | 1<<3                    // Increment destination address
+             | 1);                     // Channel enabled
   while (1)
     {
 
