@@ -46,6 +46,19 @@
 #define Z_RESULT3      (*(volatile signed long int*)0x40000318)
 #define CONTROL_DONE3  (*(volatile signed long int*)0x4000031c)
 
+// DMA registers
+#define CSR             (*(volatile unsigned long int*)0x50000000)
+#define INT_MSK_A       (*(volatile unsigned long int*)0x50000004)
+#define INT_SRC_A       (*(volatile unsigned long int*)0x5000000c)
+#define CH0_CSR         (*(volatile unsigned long int*)0x50000020)
+#define CH0_SZ          (*(volatile unsigned long int*)0x50000024)
+#define CH0_A0          (*(volatile unsigned long int*)0x50000028)
+#define CH0_AM0         (*(volatile unsigned long int*)0x5000002c)
+#define CH0_A1          (*(volatile unsigned long int*)0x50000030)
+#define CH0_AM1         (*(volatile unsigned long int*)0x50000034)
+#define CH0_DESC        (*(volatile unsigned long int*)0x50000038)
+#define CH0_SWPTR       (*(volatile unsigned long int*)0x5000003c)
+
 /*
  * address    description                comment
  * 0x0   32   Prescale Register          Global Prescale register
