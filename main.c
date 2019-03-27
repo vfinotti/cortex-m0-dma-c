@@ -59,6 +59,7 @@
 #define CH0_DESC        (*(volatile unsigned long int*)0x50000038)
 #define CH0_SWPTR       (*(volatile unsigned long int*)0x5000003c)
 
+// Timer registers
 /*
  * address    description                comment
  * 0x0   32   Prescale Register          Global Prescale register
@@ -67,7 +68,6 @@
  * 0x10  64   'mtime' Register           'mtime'
  * 0x18  64   'mtimecmp' Register        'mtimecmp'
  */
-
 #define TIMER_GLO_PRESCALE (*(volatile unsigned long int*) 0x40000400)
 #define TIMER_IPENDING     (*(volatile unsigned long int*) 0x40000408)
 #define TIMER_IRQ_EN       (*(volatile unsigned long int*) 0x4000040C)
@@ -131,8 +131,8 @@ int main(void)
   TIMER_IRQ_EN = 1U;
   TIMER_GLO_PRESCALE = 0U;
 
-  NVIC_SetPriority (0, 1);            // Set Timer priority
-  NVIC_EnableIRQ (0);                 // Enable Timer Interrupt
+  NVIC_SetPriority (0, 1); // Set Timer priority
+  NVIC_EnableIRQ (0);      // Enable Timer Interrupt
 
   SCB->SCR |= 0x2;  // Enable S1eep-on-exit feature
 
@@ -153,6 +153,7 @@ int main(void)
              | 1<<4                    // Increment source address
              | 1<<3                    // Increment destination address
              | 1);                     // Channel enabled
+
   while (1)
     {
 
