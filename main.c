@@ -6,6 +6,7 @@
 
 #define LedToggle 0xf0f0f0f0
 
+// Cortex 0 registers
 #define X0             (*(volatile signed long int*)0x40000000)
 #define Y0             (*(volatile signed long int*)0x40000004)
 #define Z0             (*(volatile signed long int*)0x40000008)
@@ -15,6 +16,7 @@
 #define Z_RESULT0      (*(volatile signed long int*)0x40000018)
 #define CONTROL_DONE0  (*(volatile signed long int*)0x4000001c)
 
+// Cortex 1 registers
 #define X1             (*(volatile signed long int*)0x40000100)
 #define Y1             (*(volatile signed long int*)0x40000104)
 #define Z1             (*(volatile signed long int*)0x40000108)
@@ -24,6 +26,7 @@
 #define Z_RESULT1      (*(volatile signed long int*)0x40000118)
 #define CONTROL_DONE1  (*(volatile signed long int*)0x4000011c)
 
+// Cortex 2 registers
 #define X2             (*(volatile signed long int*)0x40000200)
 #define Y2             (*(volatile signed long int*)0x40000204)
 #define Z2             (*(volatile signed long int*)0x40000208)
@@ -33,6 +36,7 @@
 #define Z_RESULT2      (*(volatile signed long int*)0x40000218)
 #define CONTROL_DONE2  (*(volatile signed long int*)0x4000021c)
 
+// Cortex 3 registers
 #define X3             (*(volatile signed long int*)0x40000300)
 #define Y3             (*(volatile signed long int*)0x40000304)
 #define Z3             (*(volatile signed long int*)0x40000308)
